@@ -1,9 +1,9 @@
-Cython==0.29.21
-librosa==0.9.2
-matplotlib==3.3.1
-scikit-learn==1.0.2
+Cython
+librosa
+matplotlib
+scikit-learn
 scipy
-numpy==1.21.6
+numpy==1.26.4
 tensorboard
 torch
 torchvision
@@ -18,9 +18,9 @@ cn2an
 inflect
 eng_to_ipa
 ko_pron
-indic_transliteration==2.3.37
-num_thai==0.0.5
-opencc==1.1.1
+indic_transliteration
+num_thai
+opencc
 demucs
 git+https://github.com/openai/whisper.git 
 gradio
