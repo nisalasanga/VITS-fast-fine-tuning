@@ -1,5 +1,5 @@
 Cython
-librosa
+librosa==0.10.1
 matplotlib
 scikit-learn
 scipy
@@ -22,5 +22,4 @@ indic_transliteration
 num_thai
 opencc
 demucs
-git+https://github.com/openai/whisper.git 
 gradio
