@@ -267,12 +267,12 @@ def train_and_evaluate(rank, epoch, hps, nets, optims, schedulers, scaler, loade
         utils.save_checkpoint(net_d, None, hps.train.learning_rate, epoch,
                               os.path.join(hps.model_dir, "D_latest.pth"))
         # save to google drive
-        if os.path.exists("/content/drive/MyDrive/"):
+        if os.path.exists("/content/drive/MyDrive/Model_checkpoints/"):
             utils.save_checkpoint(net_g, None, hps.train.learning_rate, epoch,
-                                  os.path.join("/content/drive/MyDrive/", "G_latest.pth"))
+                                  os.path.join("/content/drive/MyDrive/Model_checkpoints/", "G_latest.pth"))
 
             utils.save_checkpoint(net_d, None, hps.train.learning_rate, epoch,
-                                  os.path.join("/content/drive/MyDrive/", "D_latest.pth"))
+                                  os.path.join("/content/drive/MyDrive/Model_checkpoints/", "D_latest.pth"))
         if hps.preserved > 0:
           utils.save_checkpoint(net_g, None, hps.train.learning_rate, epoch,
                                   os.path.join(hps.model_dir, "G_{}.pth".format(global_step)))
@@ -287,14 +287,14 @@ def train_and_evaluate(rank, epoch, hps, nets, optims, schedulers, scaler, loade
           if os.path.exists(old_d):
             print(f"remove {old_d}")
             os.remove(old_d)
-          if os.path.exists("/content/drive/MyDrive/"):
+          if os.path.exists("/content/drive/MyDrive/Model_checkpoints/"):
               utils.save_checkpoint(net_g, None, hps.train.learning_rate, epoch,
-                                    os.path.join("/content/drive/MyDrive/", "G_{}.pth".format(global_step)))
+                                    os.path.join("/content/drive/MyDrive/Model_checkpoints/", "G_{}.pth".format(global_step)))
               utils.save_checkpoint(net_d, None, hps.train.learning_rate, epoch,
-                                    os.path.join("/content/drive/MyDrive/", "D_{}.pth".format(global_step)))
-              old_g = utils.oldest_checkpoint_path("/content/drive/MyDrive/", "G_[0-9]*.pth",
+                                    os.path.join("/content/drive/MyDrive/Model_checkpoints/", "D_{}.pth".format(global_step)))
+              old_g = utils.oldest_checkpoint_path("/content/drive/MyDrive/Model_checkpoints/", "G_[0-9]*.pth",
                                                    preserved=hps.preserved)  # Preserve 4 (default) historical checkpoints.
-              old_d = utils.oldest_checkpoint_path("/content/drive/MyDrive/", "D_[0-9]*.pth", preserved=hps.preserved)
+              old_d = utils.oldest_checkpoint_path("/content/drive/MyDrive/Model_checkpoints/", "D_[0-9]*.pth", preserved=hps.preserved)
               if os.path.exists(old_g):
                   print(f"remove {old_g}")
                   os.remove(old_g)
